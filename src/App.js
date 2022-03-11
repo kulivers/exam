@@ -1,25 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [text, setText] = useState('');
+    const [updatedText, setUpdatedText] = useState('');
+    return (
+        <div className="App">
+            <header className="App-header">
+                <div style={{maxWidth: 600}}>
+                    <input onChange={(e) => {
+                        setText(e.target.value)
+                        setUpdatedText(e.target.value.replaceAll('т.к.', 'так как'))
+                    }} style={{height: '200px', width: '600px', overflowWrap: 'break-word'}}/>
+
+                    <br/>
+                    <p style={{
+                        height: '300px', overflowWrap: 'break-word'
+                    }}>{updatedText}</p>
+                </div>
+            </header>
+        </div>
+    );
 }
 
 export default App;
