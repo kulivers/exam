@@ -1,15 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
 
 const App = () => {
-    const [text, setText] = useState('');
+    const [, setText] = useState('');
     const [updatedText, setUpdatedText] = useState('');
     return (
         <div className="App">
             <header className="App-header">
                 <div style={{maxWidth: 600}}>
-                    <input onChange={(e) => {
+                    <textarea onChange={(e) => {
                         setText(e.target.value)
                         setUpdatedText(e.target.value.replaceAll('т.к.', 'так как'))
                     }} style={{height: '200px', width: '600px', overflowWrap: 'break-word'}}/>
